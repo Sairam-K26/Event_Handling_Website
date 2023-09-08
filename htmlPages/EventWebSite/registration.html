@@ -3,112 +3,112 @@
 {% load static %}
 
 {% block loadcss %}
-<link rel="stylesheet" href="{% static 'css/EventWebSite/registration.css' %}" type="text/css">
+<!-- <link rel="stylesheet" href="{% static 'css/EventWebSite/registration.css' %}" type="text/css"> -->
 <style>
     body {
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
+        margin: 0;
+        padding: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-#titleBar{
-    background-color: transparent;
-}
+    #titleBar {
+        background-color: transparent;
+    }
 
-#header_links_container{
-    background-color: transparent;
-}
+    #header_links_container {
+        background-color: transparent;
+    }
 
-/* Error Msg */
+    /* Error Msg */
 
-#error_msg,
-.helptext,
-.errorlist{
-    color: red;
-    margin-left: 10%;
-    white-space: nowrap;
-}
+    #error_msg,
+    .helptext,
+    .errorlist {
+        color: red;
+        margin-left: 10%;
+        white-space: nowrap;
+    }
 
-#error_msg ul,
-.helptext ul,
-.errorlist ul{
-    margin-left: 5%;
-}
+    #error_msg ul,
+    .helptext ul,
+    .errorlist ul {
+        margin-left: 5%;
+    }
 
-/* Reg Form */
+    /* Reg Form */
 
-#reg_form{
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-}
+    #reg_form {
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+    }
 
-#reg_form form{
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 25px;
-    border-radius: 25px;
-    max-width: 680px;
-}
+    #reg_form form {
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 25px;
+        border-radius: 25px;
+        max-width: 680px;
+    }
 
-#reg_form th, td{
-    text-align: left;
-    padding: 5px 0px;
-}
+    #reg_form th,
+    td {
+        text-align: left;
+        padding: 5px 0px;
+    }
 
-#reg_form td input,
-#reg_form td select{
-    height: 35px;
-    width: 90%;
-    margin-left: 10%;
-    border-radius: 3px;
-}
+    #reg_form td input,
+    #reg_form td select {
+        height: 35px;
+        width: 90%;
+        margin-left: 10%;
+        border-radius: 3px;
+    }
 
-#events{
-    /* border: 2px solid black; */
-    padding: 5px 15px 5px 0px;
-}
+    #events {
+        /* border: 2px solid black; */
+        padding: 5px 15px 5px 0px;
+    }
 
-#events .events_title{
-    padding: 10px 0px;
-    font-weight: bold;
-}
+    #events .events_title {
+        padding: 10px 0px;
+        font-weight: bold;
+    }
 
-#events .eventWrapper{
-    display: inline-block;
-    border: 2px solid black;
-    padding: 10px 30px;
-    margin: 10px;
-}
+    #events .eventWrapper {
+        display: inline-block;
+        border: 2px solid black;
+        padding: 10px 30px;
+        margin: 10px;
+    }
 
-#events .total_fees_container label, 
-#events .total_fees_container #fee_amount
-{
-    display: inline;
-}
+    #events .total_fees_container label,
+    #events .total_fees_container #fee_amount {
+        display: inline;
+    }
 
-#submit_box{
-    display: flex;
-    align-items: center;
-}
+    #submit_box {
+        display: flex;
+        align-items: center;
+    }
 
-#submit {
-    width: 150px;
-    height: 50px;
-    font-size: 120%;
-    border-radius: 0;
-    background-image: linear-gradient(to right, #4867e0 60%, #329fec);
-    border: none;
-    color: white;
-    margin: 30px auto;   
-    transition: all 0.5s linear;
-}
+    #submit {
+        width: 150px;
+        height: 50px;
+        font-size: 120%;
+        border-radius: 0;
+        background-image: linear-gradient(to right, #4867e0 60%, #329fec);
+        border: none;
+        color: white;
+        margin: 30px auto;
+        transition: all 0.5s linear;
+    }
 
-#submit:hover{
-    transform: scale(1.03);
-    cursor: pointer;
-}
+    #submit:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+    }
 </style>
 {% endblock %}
 
@@ -143,7 +143,8 @@
             <div class="events_title" style="font-family: 'Open Sans', cursive;">Events (max 3)</div>
             {% for event in events %}
             <div class="eventWrapper" id="checkboxgroup">
-                <input type="checkbox" id="{{ event.event_name }}_checkbox" name="select_event" value="{{ event.event_name }}"
+                <input type="checkbox" id="{{ event.event_name }}_checkbox" name="select_event"
+                    value="{{ event.event_name }}"
                     onchange="changeToAmount('{{ event.event_name }}', '{{ event.fees }}'); limitCheckboxes(this);">
                 <label for="{{ event.event_name }}">{{ event.event_name }}</label>
             </div>
@@ -151,14 +152,17 @@
             <div class="total_fees_container">
                 <label for="total_fees" style="font-family: 'Open Sans', cursive;">Total Fees</label>
                 <p id="fee_amount" style="font-family: 'Open Sans', cursive;">200</p><br><br><br>
-                
+
                 <div>
                     <input type="checkbox" required>
                     <label>Before Submitting the registration form please read the below statement</label>
-                    <h6>After Registration You should pay by clicking Pay here button which is in your profile page  .Your registration is only confirmed for the selected events when the payment is recieved and once we send the payemnt confirmation mail.Remember that.Dont panic after payment confirmation from our side we will also update it in your profile</h6>                 
+                    <h6>After Registration You should pay by clicking Pay here button which is in your profile page
+                        .Your registration is only confirmed for the selected events when the payment is recieved and
+                        once we send the payemnt confirmation mail.Remember that.Dont panic after payment confirmation
+                        from our side we will also update it in your profile</h6>
 
                 </div>
-               
+
             </div>
         </div>
         <div id="submit_box">
